@@ -25,6 +25,10 @@ app.use('/delete', deleteRoutes);
 
 app.use(errorHandler);
 
+app.get('/', (req, res) => {
+    res.json({msg: 'Welcome to File Upload API'});
+});
+
 app.listen(process.env.PORT || 5000, ()=> {
     console.log("Server is running...");
 })
