@@ -1,0 +1,214 @@
+{
+	"info": {
+		"_postman_id": "cade31ef-701f-4a16-84cb-dd805927147b",
+		"name": "New Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "47245757",
+		"_collection_link": "https://muhammadaliamir24-4815378.postman.co/workspace/Ali-Amir's-Workspace~818b7393-1ff7-475e-8c47-c4c6f03265ed/collection/47245757-cade31ef-701f-4a16-84cb-dd805927147b?action=share&source=collection_link&creator=47245757"
+	},
+	"item": [
+		{
+			"name": "Register",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Ali Amir\",\r\n    \"email\": \"someone@example.com\",\r\n    \"password\": \"123123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/auth/register",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"aliamir@example.com\",\r\n    \"password\": \"123123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/auth/login",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Upload",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/muham/OneDrive/Pictures/ali.png"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{baseURL}}/upload",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"upload"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Download All FIles",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/download/files",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"download",
+						"files"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Download FIle",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/download/file?filename=ali.png",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"download",
+						"file"
+					],
+					"query": [
+						{
+							"key": "filename",
+							"value": "ali.png"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get File",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/file?filename=ali.png",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"file"
+					],
+					"query": [
+						{
+							"key": "filename",
+							"value": "ali.png"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Files",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/files",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"files"
+					],
+					"query": [
+						{
+							"key": "filename",
+							"value": "<filename>",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Files(s)",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/delete?filename=<filename>",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"delete"
+					],
+					"query": [
+						{
+							"key": "filename",
+							"value": "<filename>"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "baseURL",
+			"value": "http://localhost:5000",
+			"type": "default"
+		}
+	]
+}

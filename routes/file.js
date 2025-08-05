@@ -4,11 +4,6 @@ import auth from "../middleware/auth.js";
 
 const router = express.Router();
 
-/**
- * @route   GET /files
- * @desc    Get metadata list of all the user’s files
- * @access  Private
- */
 router.get("/files", auth, async (req, res) => {
   try {
     const files = await Upload.find({ user: req.user.id }).select("name file uploadAt");
@@ -25,12 +20,6 @@ router.get("/files", auth, async (req, res) => {
   }
 });
 
-/**
- * @route   GET /file
- * @query   filename=<filename>
- * @desc    Get metadata about one specific file (if it belongs to the user)
- * @access  Private
- */
 router.get("/file", auth, async (req, res) => {
   const { filename } = req.query;
   if (!filename) return res.status(400).json({ msg: "filename query is required" });

@@ -6,11 +6,6 @@ import auth from "../middleware/auth.js";
 const router = express.Router();
 
 
-/**
- * @route   GET /download/files
- * @desc    Stream a .zip containing all files the user has uploaded
- * @access  Private
- */
 router.get("/files", auth, async (req, res) => {
   try {
     const files = await Upload.find({ user: req.user.id });

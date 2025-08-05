@@ -10,10 +10,9 @@ const storage = multer.memoryStorage();
 const upload = multer({ 
   storage,
   limits: {
-    fileSize: 5 * 1024 * 1024    // 5MB
+    fileSize: 5 * 1024 * 1024   
   },
   fileFilter: (req, file, cb) => {
-    // allow images and pdfs only
     const allowed = ["image/jpeg", "image/png", "image/gif", "application/pdf"];
     if (allowed.includes(file.mimetype)) {
       cb(null, true);
@@ -23,7 +22,6 @@ const upload = multer({
   }
 });
 
-// POST /upload
 router.post("/", auth, upload.single("file"), async (req, res) => {
   if (!req.file) {
     return res.status(400).json({ msg: "No file provided" });
